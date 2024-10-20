@@ -1,7 +1,7 @@
 CC = cc
-FLAGS = -Wall -Wextra -Werror -pthread #-g -fsanitize=undefined,thread
+FLAGS = -Wall -Wextra -Werror -pthread -g -fsanitize=undefined,thread
 NAME = philosophers
-SRC = philo.c allocate.c checking_thread.c
+SRC = philo.c allocate.c checking_thread.c parse.c
 OBJ = $(SRC:.c=.o)
 all         : $(NAME)
 

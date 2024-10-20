@@ -11,6 +11,7 @@
 typedef struct s_philo
 {
     int id;
+    long long start_time;
     pthread_t thread;
     long long last_meal_time;
     int meals_eaten;
@@ -42,5 +43,6 @@ typedef struct s_coll{
 void    *c_malloc(size_t size, int flag);
 void *supervisor(void *data_void);
 long long get_time();
+int parse(int ac, char **av, t_data *data);
 
 #endif
