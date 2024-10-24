@@ -31,12 +31,14 @@ int parse(int ac, char **av, t_data *data)
 	    data->time_to_die = atoi(av[2]);
 	    data->time_to_eat = atoi(av[3]);
 	    data->time_to_sleep = atoi(av[4]);
-        if(!data->numberof_philos || data->numberof_philos > 200 || !data->time_to_die || !data->time_to_eat || !data->time_to_sleep)
+	    if (ac == 6)
+		    data->numberof_meals = atoi(av[5]);
+        if(!data->numberof_philos || data->numberof_philos > 200 || !data->time_to_die || !data->time_to_eat || !data->time_to_sleep || !data->numberof_meals)
         {
             return (0);
         }
-	    if (ac == 6)
-		    data->numberof_meals = atoi(av[5]);
+        if (!av[5])
+            data->numberof_meals = -1;
         return (1);
 	}
     return (0);
