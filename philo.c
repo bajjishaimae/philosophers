@@ -53,14 +53,9 @@ void create_threads(t_data *data)
 		i++;
 	}
 }
-void f()
-{
-	system("leaks philo");
-}
 
 int main(int ac, char **av)
 {
-	// atexit(f);
 	t_data data;
 	if (!parse(ac, av, &data))
 	{
