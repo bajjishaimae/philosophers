@@ -6,7 +6,7 @@
 /*   By: cbajji <cbajji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 21:37:51 by cbajji            #+#    #+#             */
-/*   Updated: 2024/11/09 20:37:51 by cbajji           ###   ########.fr       */
+/*   Updated: 2024/11/10 19:11:31 by cbajji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ int	parse(int ac, char **av, t_data *data, int i)
 			data->numberof_meals = ft_atoi(av[5]);
 		else
 			data->numberof_meals = -1;
-		if (!data->numberof_philos || data->numberof_philos > 200
-			|| !data->time_to_die || !data->time_to_eat
-			|| !data->time_to_sleep || !data->numberof_meals)
+		if (!data->numberof_philos || !data->numberof_meals)
 			return (0);
 		return (1);
 	}

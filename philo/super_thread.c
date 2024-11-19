@@ -6,7 +6,7 @@
 /*   By: cbajji <cbajji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 17:26:57 by cbajji            #+#    #+#             */
-/*   Updated: 2024/11/09 21:29:05 by cbajji           ###   ########.fr       */
+/*   Updated: 2024/11/10 19:12:35 by cbajji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*philo_died(t_philo *philo)
 {
 	set_check_death(philo, 0);
 	pthread_mutex_lock(&philo->data->print);
-	printf ("🥀🥀%lld %d died 🥀🥀\n", get_time() - philo->start_time, philo->id);
+	printf ("%lld %d died\n", get_time() - philo->start_time, philo->id);
 	pthread_mutex_unlock(&philo->data->print);
 	return (NULL);
 }
@@ -24,7 +24,6 @@ void	*philo_died(t_philo *philo)
 void	all_full(t_philo *philos)
 {
 	pthread_mutex_lock(&philos->data->print);
-	printf ("all philos ate %d meals 🏅\n", philos->data->numberof_meals);
 	pthread_mutex_unlock(&philos->data->print);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cbajji <cbajji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 18:07:02 by cbajji            #+#    #+#             */
-/*   Updated: 2024/11/09 20:37:34 by cbajji           ###   ########.fr       */
+/*   Updated: 2024/11/18 18:23:37 by cbajji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,19 @@ typedef struct s_data
 	pthread_mutex_t	*forks;
 }	t_data;
 
+typedef struct s_cleanup_state
+{
+	int				forks_initialized;
+	int				philos_initialized;
+	int				data_mutex_initialized;
+}	t_cleanup_state;
+
 void		*supervisor(void *data_void);
 long long	get_time(void);
 int			parse(int ac, char **av, t_data *data, int i);
 void		print_status(t_philo *philo, char status);
 void		create_super_thread(t_data *data);
 void		*routine(void *philo_void);
-int			ft_usleep(size_t milliseconds);
 int			get_check_death(t_philo *philo);
 void		set_check_death(t_philo *philo, int value);
 int			get_check_full(t_philo *philo);
@@ -66,4 +72,7 @@ long long	get_lasttime(t_philo *philo);
 void		set_nmeals(t_philo *philo);
 int			get_nmeals(t_philo *philo);
 int			ft_atoi(const char *str);
+void		safe_mutex_destroy(pthread_mutex_t *mutex, char *name);
+void		cleanup(t_data *data, t_cleanup_state *state);
+void		create_threads(t_data *data);
 #endif
