@@ -6,7 +6,7 @@
 /*   By: cbajji <cbajji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 17:26:57 by cbajji            #+#    #+#             */
-/*   Updated: 2024/11/10 19:12:35 by cbajji           ###   ########.fr       */
+/*   Updated: 2024/11/20 17:43:41 by cbajji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	*philo_died(t_philo *philo)
 {
 	set_check_death(philo, 0);
 	pthread_mutex_lock(&philo->data->print);
-	printf ("%lld %d died\n", get_time() - philo->start_time, philo->id);
+	printf ("%lld %d died\n", get_time() - philo->data->start_time, philo->id);
 	pthread_mutex_unlock(&philo->data->print);
 	return (NULL);
 }
 
-void	all_full(t_philo *philos)
-{
-	pthread_mutex_lock(&philos->data->print);
-	pthread_mutex_unlock(&philos->data->print);
-}
+// void	all_full(t_philo *philos)
+// {
+// 	pthread_mutex_lock(&philos->data->print);
+// 	pthread_mutex_unlock(&philos->data->print);
+// }
 
 void	one_more_full(t_philo *philos, int i)
 {
@@ -44,8 +44,7 @@ void	*supervisor(void *philos_void)
 		i = -1;
 		while (++i < philos->data->numberof_philos)
 		{
-			if (get_time() - get_lasttime(&philos[i])
-				>= philos->data->time_to_die)
+			if (get_time() - get_lasttime(&philos[i]) >= philos->data->time_to_die)
 			{
 				return (philo_died(philos));
 			}
@@ -56,7 +55,7 @@ void	*supervisor(void *philos_void)
 			}
 		}
 	}
-	all_full(philos);
+	// all_full(philos);
 	return (NULL);
 }
 

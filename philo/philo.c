@@ -6,7 +6,7 @@
 /*   By: cbajji <cbajji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 21:41:20 by cbajji            #+#    #+#             */
-/*   Updated: 2024/11/18 18:32:32 by cbajji           ###   ########.fr       */
+/*   Updated: 2024/11/20 17:34:21 by cbajji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ int	init_data(t_data *data, int i)
 	}
 	while (i < data->numberof_philos)
 	{
+		
 		data->philosophers[i].id = i + 1;
 		data->philosophers[i].left_fork = &data->forks[i];
 		data->philosophers[i].right_fork = &data->forks[(i + 1)

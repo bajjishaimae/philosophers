@@ -6,7 +6,7 @@
 /*   By: cbajji <cbajji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:20:35 by cbajji            #+#    #+#             */
-/*   Updated: 2024/11/10 15:36:53 by cbajji           ###   ########.fr       */
+/*   Updated: 2024/11/20 19:39:41 by cbajji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,18 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (result * sign);
+}
+
+int	ft_usleep(size_t milliseconds, t_philo *philo)
+{
+	size_t	start;
+
+	start = get_time();
+	while ((get_time() - start) < milliseconds)
+	{
+		if (!get_check_death(philo))
+			break;
+		usleep(150);
+	}
+	return (0);
 }

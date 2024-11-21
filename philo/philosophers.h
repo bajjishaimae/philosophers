@@ -6,7 +6,7 @@
 /*   By: cbajji <cbajji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 18:07:02 by cbajji            #+#    #+#             */
-/*   Updated: 2024/11/18 18:23:37 by cbajji           ###   ########.fr       */
+/*   Updated: 2024/11/21 17:00:46 by cbajji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 typedef struct s_philo
 {
-	long long		start_time;
 	int				id;
 	pthread_t		thread;
 	long long		last_meal_time;
@@ -36,6 +35,7 @@ typedef struct s_philo
 
 typedef struct s_data
 {
+	long long		start_time;
 	int				time_to_eat;
 	int				time_to_die;
 	int				time_to_sleep;
@@ -75,4 +75,5 @@ int			ft_atoi(const char *str);
 void		safe_mutex_destroy(pthread_mutex_t *mutex, char *name);
 void		cleanup(t_data *data, t_cleanup_state *state);
 void		create_threads(t_data *data);
+int			ft_usleep(size_t milliseconds, t_philo *philo);
 #endif
