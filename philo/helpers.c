@@ -6,7 +6,7 @@
 /*   By: cbajji <cbajji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:20:35 by cbajji            #+#    #+#             */
-/*   Updated: 2024/11/20 19:39:41 by cbajji           ###   ########.fr       */
+/*   Updated: 2024/11/22 15:28:24 by cbajji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	ft_usleep(size_t milliseconds, t_philo *philo)
 	while ((get_time() - start) < milliseconds)
 	{
 		if (!get_check_death(philo))
-			break;
+			break ;
 		usleep(150);
 	}
 	return (0);

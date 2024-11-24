@@ -6,7 +6,7 @@
 /*   By: cbajji <cbajji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 17:26:57 by cbajji            #+#    #+#             */
-/*   Updated: 2024/11/20 17:43:41 by cbajji           ###   ########.fr       */
+/*   Updated: 2024/11/22 15:12:25 by cbajji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,6 @@ void	*philo_died(t_philo *philo)
 	pthread_mutex_unlock(&philo->data->print);
 	return (NULL);
 }
-
-// void	all_full(t_philo *philos)
-// {
-// 	pthread_mutex_lock(&philos->data->print);
-// 	pthread_mutex_unlock(&philos->data->print);
-// }
 
 void	one_more_full(t_philo *philos, int i)
 {
@@ -44,7 +38,8 @@ void	*supervisor(void *philos_void)
 		i = -1;
 		while (++i < philos->data->numberof_philos)
 		{
-			if (get_time() - get_lasttime(&philos[i]) >= philos->data->time_to_die)
+			if (get_time() - get_lasttime(&philos[i])
+				>= philos->data->time_to_die)
 			{
 				return (philo_died(philos));
 			}
@@ -55,7 +50,6 @@ void	*supervisor(void *philos_void)
 			}
 		}
 	}
-	// all_full(philos);
 	return (NULL);
 }
 

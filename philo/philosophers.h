@@ -6,7 +6,7 @@
 /*   By: cbajji <cbajji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 18:07:02 by cbajji            #+#    #+#             */
-/*   Updated: 2024/11/21 17:00:46 by cbajji           ###   ########.fr       */
+/*   Updated: 2024/11/22 15:05:14 by cbajji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ typedef struct s_cleanup_state
 void		*supervisor(void *data_void);
 long long	get_time(void);
 int			parse(int ac, char **av, t_data *data, int i);
-void		print_status(t_philo *philo, char status);
+void		print_status1(t_philo *philo, char status);
+void		print_status2(t_philo *philo, char status);
 void		create_super_thread(t_data *data);
 void		*routine(void *philo_void);
 int			get_check_death(t_philo *philo);
